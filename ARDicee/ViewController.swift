@@ -59,7 +59,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 if let diceNode = diceScene.rootNode.childNode(withName: "Dice", recursively: true) {
                     
                     diceNode.position = SCNVector3(x: hitResults.worldTransform.columns.3.x,
-                                                   y: hitResults.worldTransform.columns.3.y,
+                                                   y: hitResults.worldTransform.columns.3.y + diceNode.boundingSphere.radius,
                                                    z: hitResults.worldTransform.columns.3.z)
                     
                     sceneView.scene.rootNode.addChildNode(diceNode)
